@@ -2,13 +2,17 @@ import { Container } from "react-bootstrap";
 import Sidebar from "../components/menubar/Sidebar";
 import Headerbar from "../components/menubar/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
+import TopContent from "../components/content/TopContent";
 
 function App() {
   return (
     <div id="bbts-container">
       <Sidebar />
-      <div id="bbts-container">
+      <div id="bbts-main-container">
         <Headerbar />
+        <div className="main-container">
+          <TopContent />
+        </div>
       </div>
     </div>
   );

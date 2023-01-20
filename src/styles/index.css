@@ -17,6 +17,13 @@ code {
   display: flex;
 }
 
+#bbts-main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Sidebar */
 #bbts-sidebar {
   width: 75px;
@@ -120,7 +127,7 @@ code {
 #right-content {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 #right-content button {
@@ -222,4 +229,223 @@ code {
   flex-direction: row;
   gap: 12px;
   color: #4d4d4d;
+}
+
+/* Main Content */
+.main-container {
+  padding: 23px 29px;
+}
+
+#flow-step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+#flow-step p {
+  margin: 0;
+  color: #818181;
+}
+
+#flow-step .step-active {
+  color: #e84d0e;
+}
+
+.top-content h1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #333333;
+  margin: 10px 0;
+}
+
+#option-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#option-bar .top-option {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#option-bar .left-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+#option-bar .left-items .search-form {
+  width: 250px;
+  height: 34px;
+  padding: 2px 4px 2px 12px;
+  border: 1px solid #d9dfe7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+}
+
+#option-bar .left-items .search-form .search-bar {
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  padding: 0;
+}
+
+#option-bar .left-items .search-form .search-bar:focus {
+  outline: none;
+}
+
+#option-bar .left-items .search-form .search-bar::placeholder {
+  color: #d9dfe7;
+}
+
+#option-bar .left-items .search-form .search-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #d9dfe7;
+  padding: 0 0 4px 0;
+}
+
+#option-bar .option-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #333333;
+  padding: 0;
+}
+
+#option-bar .option-arrow {
+  stroke-width: 1.5px;
+}
+
+#option-bar .right-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+#option-bar .right-items .download-btn,
+#option-bar .right-items .print-btn {
+  padding: 0;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: #5e5e5e;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#option-bar .right-items .new-btn {
+  padding: 0;
+  width: 110px;
+  height: 35px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #5e5e5e;
+  background-color: #f3c244;
+  font-size: 14px;
+}
+
+#option-bar .advanced-option {
+  width: 100%;
+  height: 120px;
+  padding: 14px 16px 14px 32px;
+  box-sizing: border-box;
+  background-color: #f5f7f9;
+  border: 1px solid #c7cdd6d9;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px #3c46531a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#option-bar .advanced-option h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+
+#option-bar .advanced-option .status-field .status-btn {
+  width: 96px;
+  height: 36px;
+  padding: 0 4px 0 12px;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 8px;
+  border: 1px solid #d9dfe7;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#option-bar .advanced-option .status-field .status-btn-open {
+  border-radius: 8px 8px 0 0;
+}
+
+#option-bar .advanced-option .status-field .status-menu {
+  width: 96px;
+  height: 64px;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid #d9dfe7;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#option-bar .advanced-option .status-field .status-menu button {
+  padding: 4px 4px 4px 12px;
+  background-color: transparent;
+  border: none;
+}
+
+#option-bar .advanced-option .sync-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background-color: #5e5e5e;
+  border-radius: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#option-bar .advanced-option .sync-btn .sync-icon {
+  width: 22px;
+  height: 22px;
+}
+
+#option-bar .advanced-option .sync-btn:hover {
+  box-shadow: 0px 3px 8px #0000004d;
 }
