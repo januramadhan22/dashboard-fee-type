@@ -1,13 +1,225 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Segoe UI";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Container */
+#bbts-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+/* Sidebar */
+#bbts-sidebar {
+  width: 75px;
+  height: 100vh;
+  background-color: #027f71;
+  padding: 45px 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#bbts-sidebar span {
+  background-color: transparent;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+}
+
+#bbts-sidebar-body {
+  background-color: #027f71;
+  opacity: 85%;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 45px 8px;
+}
+
+#bbts-sidebar-open ul {
+  list-style: none;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+}
+
+#bbts-list-sidebar {
+  padding: 0;
+}
+
+#bbts-sidebar-open .bbts-sidebar-menu li {
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+#bbts-sidebar-open .bbts-sidebar-menu .menu {
+  padding: 10px 12px;
+}
+
+#bbts-sidebar-open .bbts-sidebar-menu .menu-active {
+  background-color: #fdc300;
+}
+
+#bbts-sidebar-open .bbts-sidebar-submenu {
+  padding-left: 40px;
+}
+
+#bbts-sidebar-open .bbts-sidebar-submenu li {
+  width: fit-content;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+#bbts-sidebar-open ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+#bbts-home-icon {
+  font-size: 20px;
+  fill: transparent;
+  stroke-width: 1.5px;
+  stroke: white;
+  opacity: 1;
+}
+
+#bbts-bag-icon {
+  font-size: 20px;
+}
+
+#bbts-arrow-icon {
+  font-size: 20px;
+  stroke-width: 2px;
+}
+
+.bbts-sidebar-submenu .submenu-active {
+  color: #fdc300;
+}
+
+/* Header */
+#bbts-header {
+  width: 100%;
+  height: 92px;
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 6px #00000029;
+  opacity: 1;
+  background-color: white;
+}
+
+#right-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#right-content button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.content-icons {
+  font-size: 24px;
+}
+
+#notif {
+  position: relative;
+}
+
+#badge {
+  padding: 4px;
+  border-radius: 100%;
+  background-color: red;
+  position: absolute;
+  top: 2px;
+  right: 3px;
+}
+
+#user {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 100%;
+  border: 1px solid #dadada;
+  padding: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#user .user-image {
+  font-size: 46px;
+  border-radius: 100%;
+  background-color: #dadada;
+}
+
+#user .menu {
+  position: absolute;
+  right: 0;
+  top: 58px;
+  width: 200px;
+  height: 200px;
+  padding: 12px;
+  background: white;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #f5f5f5;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.menu .user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 21px;
+  border-bottom: 1px solid #f3f4f4;
+  cursor: default;
+}
+
+.menu .user-info .user-bio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-bio p {
+  margin: 0;
+}
+
+#name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #333333;
+}
+
+#job {
+  font-size: 12px;
+  line-height: 16px;
+  color: #818181;
+}
+
+#user .menu button {
+  padding: 8px 14px;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  color: #4d4d4d;
 }
