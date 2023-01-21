@@ -17,9 +17,6 @@ function Sidebar() {
   return (
     <>
       <div className="">
-        {/* <Button variant="primary" onClick={handleShow}>
-          Launch
-        </Button> */}
         <div id="bbts-sidebar" onClick={handleShow}>
           <span>
             <HiHome id="bbts-home-icon" />
