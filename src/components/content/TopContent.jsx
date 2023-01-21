@@ -43,19 +43,31 @@ function TopContent() {
               onClick={() => setAdvOption(!advOption)}
               className="option-btn"
             >
-              Advance Options <RxDoubleArrowDown className="option-arrow" />
+              Advance Options{" "}
+              <RxDoubleArrowDown
+                className={`option-arrow ${advOption && "option-arrow-active"}`}
+              />
             </button>
           </div>
           <div className="right-items">
-            <button className="download-btn">
-              <AiOutlineDownload />
-            </button>
-            <button className="print-btn">
-              <AiOutlinePrinter />
-            </button>
-            <button className="new-btn">
-              <FiFilePlus /> Create New
-            </button>
+            <div id="tooltip">
+              <span id="tooltip-download">Click to download</span>
+              <button className="download-btn">
+                <AiOutlineDownload />
+              </button>
+            </div>
+            <div id="tooltip">
+              <span id="tooltip-print">Click to print</span>
+              <button className="print-btn">
+                <AiOutlinePrinter />
+              </button>
+            </div>
+            <div id="tooltip">
+              <span id="tooltip-create">Click to Create</span>
+              <button className="new-btn">
+                <FiFilePlus /> Create New
+              </button>
+            </div>
           </div>
         </div>
         {advOption && (
@@ -66,7 +78,13 @@ function TopContent() {
                 className={`status-btn ${statChange && "status-btn-open"}`}
                 onClick={() => setStatChange(!statChange)}
               >
-                Active <IoMdArrowDropdown size={24} />
+                Active{" "}
+                <IoMdArrowDropdown
+                  size={24}
+                  className={`status-arrow ${
+                    statChange && "status-arrow-active"
+                  }`}
+                />
               </button>
               {statChange && (
                 <div className="status-menu">
