@@ -3,6 +3,7 @@ import Sidebar from "../components/menubar/Sidebar";
 import Headerbar from "../components/menubar/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TopContent from "../components/content/TopContent";
+import Tables from "../components/content/Tables";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Headerbar />
         <div className="main-container">
           <TopContent />
+          <Tables />
         </div>
       </div>
     </div>
