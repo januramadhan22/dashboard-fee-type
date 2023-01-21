@@ -332,6 +332,11 @@ code {
 
 #option-bar .option-arrow {
   stroke-width: 1.5px;
+  -webkit-transition: 0.5s ease;
+}
+
+#option-bar .option-arrow-active {
+  -webkit-transform: rotateX(180deg);
 }
 
 #option-bar .right-items {
@@ -353,6 +358,58 @@ code {
   align-items: center;
   justify-content: center;
   color: white;
+}
+
+#option-bar .right-items .download-btn:hover,
+#option-bar .right-items .print-btn:hover,
+#option-bar .right-items .new-btn:hover {
+  box-shadow: 0px 3px 8px #00000069;
+}
+
+#tooltip {
+  position: relative;
+}
+
+#tooltip-download,
+#tooltip-print,
+#tooltip-create {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  background-color: #818181;
+  color: white;
+  width: 114px;
+  height: 23px;
+  border-radius: 4px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5 ease;
+}
+
+#tooltip-download::before,
+#tooltip-print::before,
+#tooltip-create::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 4px solid;
+  border-color: #818181 #0000 #0000 #0000;
+}
+
+#tooltip:hover #tooltip-download,
+#tooltip:hover #tooltip-print,
+#tooltip:hover #tooltip-create {
+  top: -90%;
+  visibility: visible;
+  opacity: 1;
 }
 
 #option-bar .right-items .new-btn {
@@ -382,6 +439,7 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transition: 0.3 ease;
 }
 
 #option-bar .advanced-option h3 {
@@ -406,6 +464,15 @@ code {
 
 #option-bar .advanced-option .status-field .status-btn-open {
   border-radius: 8px 8px 0 0;
+}
+
+#option-bar .advanced-option .status-field .status-arrow {
+  stroke-width: 1.5px;
+  -webkit-transition: 0.5s ease;
+}
+
+#option-bar .advanced-option .status-field .status-arrow-active {
+  -webkit-transform: rotateX(180deg);
 }
 
 #option-bar .advanced-option .status-field .status-menu {
