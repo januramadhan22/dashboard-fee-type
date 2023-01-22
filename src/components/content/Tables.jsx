@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import DataTables from "datatables.net";
+import { Link } from "react-router-dom";
+// import DataTables from "datatables.net";
+// import $ from "jquery";
 
 import { MdDragIndicator } from "react-icons/md";
 import {
@@ -17,20 +19,6 @@ function Tables() {
   const [topButton, setTopButton] = useState(false);
   const [status, setStatus] = useState(false);
 
-  // let table = new DataTables("#example", {
-  //   // options
-  //   autoWidth: true,
-  //   data: datas,
-  //   columns: [
-  //     { data: "name" },
-  //     { data: "position" },
-  //     { data: "office" },
-  //     { data: "extn" },
-  //     { data: "start_date" },
-  //     { data: "salary" },
-  //   ],
-  // });
-
   const getDatas = () => {
     axios
       .get("https://jsonplaceholder.typicode.com/todos")
@@ -45,8 +33,44 @@ function Tables() {
     getDatas();
   }, []);
 
+  // Using datatables.net
+
+  // $.DataTable = require("datatables.net");
+  // const tableRef = useRef();
+  // const tableName = "table1";
+
+  // useEffect(() => {
+  //   console.log(datas);
+  //   console.log(tableRef.current);
+  //   const table = $(tableRef.current).DataTable({
+  //     data: datas,
+  //     columns: [
+  //       { title: "Name" },
+  //       { title: "Position" },
+  //       { title: "Office" },
+  //       { title: "Extn." },
+  //       { title: "Start data" },
+  //       { title: "Salary" },
+  //     ],
+  //     destroy: true, // I think some clean up is happening here
+  //   });
+  //   // Extra step to do extra clean-up.
+  //   return function () {
+  //     console.log("Table destroyed");
+  //     table.destroy();
+  //   };
+  // }, []);
+
   return (
     <>
+      {/* <div>
+        <table
+          className="display"
+          width="100%"
+          ref={tableRef}
+          id="example"
+        ></table>
+      </div> */}
       <div id="data-table">
         {topButton && (
           <div id="table-top-btn">
@@ -114,9 +138,11 @@ function Tables() {
                     </div>
                     <div id="tooltip">
                       <span id="tooltip-view">Click to view detail</span>
-                      <button>
-                        <HiOutlineEye />
-                      </button>
+                      <Link to={`/todos/${item.id}`}>
+                        <button>
+                          <HiOutlineEye />
+                        </button>
+                      </Link>
                     </div>
                     <div id="tooltip">
                       <span id="tooltip-delete">Click to delete</span>
