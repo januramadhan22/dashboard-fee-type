@@ -11,6 +11,7 @@ import { FiFilePlus } from "react-icons/fi";
 import { FaSync } from "react-icons/fa";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function TopContent() {
   const [advOption, setAdvOption] = useState(false);
@@ -64,9 +65,11 @@ function TopContent() {
             </div>
             <div id="tooltip">
               <span id="tooltip-create">Click to Create</span>
-              <button className="new-btn">
-                <FiFilePlus /> Create New
-              </button>
+              <Link to="/create">
+                <button className="new-btn">
+                  <FiFilePlus /> Create New
+                </button>
+              </Link>
             </div>
           </div>
         </div>

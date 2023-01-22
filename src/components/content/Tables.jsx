@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 // import DataTables from "datatables.net";
 // import $ from "jquery";
+
+import DataTable from "react-data-table-component";
 
 import { MdDragIndicator } from "react-icons/md";
 import {
@@ -29,12 +31,25 @@ function Tables() {
       .catch((err) => alert(err));
   };
 
+  const handleDelete = async (id) => {
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then((res) => {
+        alert("Telah berhasil menghapus");
+      })
+      .catch((err) => {
+        alert(err.message);
+      })
+      .finally(() => {
+        getDatas();
+      });
+  };
+
   useEffect(() => {
     getDatas();
   }, []);
 
-  // Using datatables.net
-
+  /*Using datatables.net*/
   // $.DataTable = require("datatables.net");
   // const tableRef = useRef();
   // const tableName = "table1";
@@ -61,6 +76,88 @@ function Tables() {
   //   };
   // }, []);
 
+  /* Using React Datatable */
+  // const columns = [
+  //   {
+  //     name: "Fee Type Code",
+  //     selector: (row) => row.id,
+  //     sortable: true,
+  //     maxWidth: "140px",
+  //   },
+  //   {
+  //     name: "Fee Type Name",
+  //     selector: (row) => row.title,
+  //     sortable: true,
+  //     maxWidth: "300px",
+  //   },
+  //   {
+  //     name: "Description",
+  //     selector: (row) => row.title,
+  //     sortable: true,
+  //     maxWidth: "540px",
+  //   },
+  //   {
+  //     name: "Status",
+  //     selector: (row) => (
+  //       <p key={row.id}>{row.completed ? "Inactive" : "Active"}</p>
+  //     ),
+  //     sortable: true,
+  //     center: true,
+  //     maxWidth: "90px",
+  //   },
+  //   {
+  //     button: true,
+  //     name: "Actions",
+  //     cell: (row) => (
+  //       <div className="action-btn">
+  //         <div id="tooltip">
+  //           <span id="tooltip-edit">Click to edit</span>
+  //           <button>
+  //             <HiOutlinePencilAlt />
+  //           </button>
+  //         </div>
+  //         <div id="tooltip">
+  //           <span id="tooltip-view">Click to view detail</span>
+  //           <Link to={`/todos/${row.id}`}>
+  //             <button>
+  //               <HiOutlineEye />
+  //             </button>
+  //           </Link>
+  //         </div>
+  //         <div id="tooltip">
+  //           <span id="tooltip-delete">Click to delete</span>
+  //           <button onClick={() => handleDelete(row.id)}>
+  //             <HiOutlineTrash />
+  //           </button>
+  //         </div>
+  //       </div>
+  //     ),
+  //     center: true,
+  //   },
+  // ];
+
+  // const customStyles = {
+  //   rows: {
+  //     style: {
+  //       minHeight: "40px",
+  //     },
+  //   },
+  //   headCells: {
+  //     style: {
+  //       color: "#FFF",
+  //       background: "#5E5E5E",
+  //       paddingLeft: "8px",
+  //       paddingRight: "8px",
+  //     },
+  //   },
+  //   cells: {
+  //     style: {
+  //       paddingLeft: "8px",
+  //       paddingRight: "8px",
+  //     },
+  //   },
+  // };
+
   return (
     <>
       {/* <div>
@@ -71,6 +168,7 @@ function Tables() {
           id="example"
         ></table>
       </div> */}
+
       <div id="data-table">
         {topButton && (
           <div id="table-top-btn">
@@ -132,9 +230,11 @@ function Tables() {
                   <div className="action-btn">
                     <div id="tooltip">
                       <span id="tooltip-edit">Click to edit</span>
-                      <button>
-                        <HiOutlinePencilAlt />
-                      </button>
+                      <Link to={`/todos/${item.id}/edit`}>
+                        <button>
+                          <HiOutlinePencilAlt />
+                        </button>
+                      </Link>
                     </div>
                     <div id="tooltip">
                       <span id="tooltip-view">Click to view detail</span>
@@ -146,7 +246,7 @@ function Tables() {
                     </div>
                     <div id="tooltip">
                       <span id="tooltip-delete">Click to delete</span>
-                      <button>
+                      <button onClick={() => handleDelete(item.id)}>
                         <HiOutlineTrash />
                       </button>
                     </div>
@@ -157,6 +257,18 @@ function Tables() {
           </tbody>
         </Table>
       </div>
+
+      {/* <DataTable
+        columns={columns}
+        data={datas}
+        pagination
+        fixedHeader
+        fixedHeaderScrollHeight="600px"
+        selectableRows
+        selectableRowsHighlight
+        customStyles={customStyles}
+        actions={actionsMemo}
+      /> */}
     </>
   );
 }

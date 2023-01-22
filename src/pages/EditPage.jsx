@@ -12,7 +12,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { RiAlertFill } from "react-icons/ri";
 import { FiAlertCircle } from "react-icons/fi";
 
-function DetailPage() {
+function EditPage() {
   const params = useParams();
   const { id } = params;
 
@@ -45,9 +45,9 @@ function DetailPage() {
                 <p>Fee Type</p>
               </Link>
               <IoIosArrowForward />
-              <p className="step-active">Fee Type Details</p>
+              <p className="step-active">Fee Type Edit</p>
             </div>
-            <h1>Fee Type Details</h1>
+            <h1>Edit Fee Type</h1>
           </div>
           <div className="main-detail-field">
             <div className="top-main-content">
@@ -100,13 +100,16 @@ function DetailPage() {
               </div>
             </div>
           </div>
-          <Link to="/">
-            <button id="back-btn">BACK</button>
-          </Link>
+          <div id="button-action">
+            <button id="save-btn">SAVE</button>
+            <Link to="/">
+              <button id="back-btn">CANCEL</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default DetailPage;
+export default EditPage;

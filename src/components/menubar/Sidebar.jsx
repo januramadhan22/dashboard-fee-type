@@ -16,7 +16,7 @@ function Sidebar() {
 
   return (
     <>
-      <div className="">
+      <div>
         <div id="bbts-sidebar" onClick={handleShow}>
           <span>
             <HiHome id="bbts-home-icon" />

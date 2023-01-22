@@ -36,8 +36,8 @@
   gap: 120px;
 }
 
-.main-detail-field .top-main-content .top-left-content .type-name-detail p,
-.main-detail-field .top-main-content .top-left-content .type-desc-detail p {
+.main-detail-field .top-main-content .top-left-content .type-name-detail label,
+.main-detail-field .top-main-content .top-left-content .type-desc-detail label {
   min-width: 110px;
   color: #333333;
   font-size: 15px;
@@ -67,7 +67,12 @@
   .top-main-content
   .top-left-content
   .type-desc-detail
-  textarea:focus {
+  textarea:focus,
+.main-detail-field
+  .top-main-content
+  .top-right-content
+  .type-code-detail
+  input:focus {
   outline: none;
 }
 
@@ -109,7 +114,17 @@
   align-items: center;
 }
 
-.main-detail-field .top-main-content .top-right-content .type-code-detail p {
+.main-detail-field .top-main-content .top-right-content .type-code {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.main-detail-field
+  .top-main-content
+  .top-right-content
+  .type-code-detail
+  label {
   margin: 0;
   width: 50%;
   font-size: 15px;
@@ -283,4 +298,40 @@
   font-size: 13px;
   font-weight: 600;
   color: #333333;
+}
+#save-btn {
+  width: 80px;
+  height: 34px;
+  background: #027f71;
+  border: 1px solid #707070;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+}
+
+#note {
+  margin-top: 32px;
+  font-style: italic;
+  font-size: 11px;
+  color: #333333;
+}
+
+#triangle-icon-2 {
+  fill: #d91c1c;
+  font-size: 20px;
+}
+
+#button-action {
+  display: flex;
+  gap: 16px;
+}
+
+#mandatory {
+  color: #d91c1c;
+}
+
+#mandatory-note {
+  color: #d91c1c;
+  font-size: 11px;
 }
