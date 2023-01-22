@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TopContent from "../components/content/TopContent";
 import Tables from "../components/content/Tables";
 
-function App() {
+function DashboardPage() {
   return (
     <div id="bbts-container">
       <Sidebar />
@@ -20,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default DashboardPage;
