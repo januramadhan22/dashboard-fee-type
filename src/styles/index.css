@@ -672,3 +672,26 @@ code {
   color: #3e40ae;
   font-size: 16px;
 } */
+
+#bbts-footer {
+  width: 100%;
+  height: 68px;
+  padding: 20px 29px;
+  color: #818181;
+}
+
+#app-code {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: right;
+}
+
+#copyright {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: left;
+}

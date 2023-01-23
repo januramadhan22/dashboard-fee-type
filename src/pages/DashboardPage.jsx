@@ -4,6 +4,7 @@ import Headerbar from "../components/menubar/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TopContent from "../components/content/TopContent";
 import Tables from "../components/content/Tables";
+import Footer from "../components/Footer";
 
 function DashboardPage() {
   return (
@@ -15,6 +16,7 @@ function DashboardPage() {
           <TopContent />
           <Tables />
         </div>
+        <Footer />
       </div>
     </div>
   );

@@ -11,6 +11,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiAlertFill } from "react-icons/ri";
 import { FiAlertCircle } from "react-icons/fi";
+import Footer from "../components/Footer";
+
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function DetailPage() {
   const params = useParams();
@@ -52,24 +56,48 @@ function DetailPage() {
           <div className="main-detail-field">
             <div className="top-main-content">
               <div className="top-left-content">
-                <div className="type-name-detail">
-                  <p>Fee Type Name</p>
-                  <input disabled type="text" value={detail.title} />
-                </div>
-                <div className="type-desc-detail">
-                  <p>Description</p>
-                  <textarea disabled value={detail.title} />
-                </div>
+                <form
+                  // onSubmit={formik.handleSubmit}
+                  className="type-name-detail"
+                >
+                  <label>
+                    Fee Type Name<span id="mandatory">*</span>
+                  </label>
+                  <div>
+                    <input
+                      type="text"
+                      disabled
+                      name="feeTypeName"
+                      value={detail.id}
+                    />
+                  </div>
+                </form>
+                <form className="type-desc-detail">
+                  <label>Description</label>
+                  <textarea
+                    name="description"
+                    disabled
+                    value={detail.title}
+                  />{" "}
+                </form>
               </div>
-              <div className="top-right-content">
+              <form className="top-right-content">
                 <h4>For Interface Purpose</h4>
-                <div className="type-code-detail">
-                  <p>
-                    Fee Type Code <FiAlertCircle id="circle-alert" />
-                  </p>
-                  <input type="text" disabled placeholder={detail.id} />
+                <div className={`type-code-detail `}>
+                  <label>
+                    Fee Type Code<span id="mandatory">*</span>
+                    <FiAlertCircle id="circle-alert" />
+                  </label>
+                  <div>
+                    <input
+                      type="text"
+                      name="feeTypeCode"
+                      disabled
+                      value={detail.id}
+                    />
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             <div className="bottom-main-content">
               <h4>Translation</h4>
@@ -104,6 +132,7 @@ function DetailPage() {
             <button id="back-btn">BACK</button>
           </Link>
         </div>
+        <Footer />
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ import { FiAlertCircle } from "react-icons/fi";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Footer from "../components/Footer";
 
 function CreatePage() {
   const formik = useFormik({
@@ -153,6 +154,7 @@ function CreatePage() {
             </Link>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
