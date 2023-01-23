@@ -11,6 +11,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiAlertFill } from "react-icons/ri";
 import { FiAlertCircle } from "react-icons/fi";
+import Footer from "../components/Footer";
+
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function EditPage() {
   const params = useParams();
@@ -30,6 +34,25 @@ function EditPage() {
   useEffect(() => {
     getDetail();
   }, []);
+
+  const formik = useFormik({
+    //initial value
+    initialValues: {
+      feeTypeName: "",
+      description: "",
+      feeTypeCode: "",
+    },
+
+    //validation scheme
+    validationSchema: Yup.object({
+      feeTypeName: Yup.string().required().min(1).max(255),
+      description: Yup.string().required().min(1).max(4000),
+      feeTypeCode: Yup.string().required().min(1).max(36),
+    }),
+
+    //handle submit
+    onSubmit: (values) => {},
+  });
 
   return (
     <div id="bbts-container">
@@ -52,24 +75,70 @@ function EditPage() {
           <div className="main-detail-field">
             <div className="top-main-content">
               <div className="top-left-content">
-                <div className="type-name-detail">
-                  <p>Fee Type Name</p>
-                  <input disabled type="text" value={detail.title} />
-                </div>
-                <div className="type-desc-detail">
-                  <p>Description</p>
-                  <textarea disabled value={detail.title} />
-                </div>
+                <form
+                  onSubmit={formik.handleSubmit}
+                  className="type-name-detail"
+                >
+                  <label>
+                    Fee Type Name<span id="mandatory">*</span>
+                  </label>
+                  <div>
+                    <input
+                      type="text"
+                      name="feeTypeName"
+                      value={formik.values.feeTypeName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      placeholder={detail.title}
+                    />
+                    {formik.touched.feeTypeName &&
+                      formik.errors.feeTypeName && (
+                        <p id="mandatory-note">Fee Type Code is required</p>
+                      )}
+                  </div>
+                </form>
+                <form
+                  onSubmit={formik.handleSubmit}
+                  className="type-desc-detail"
+                >
+                  <label>Description</label>
+                  <textarea
+                    name="description"
+                    value={formik.values.description}
+                    onChange={formik.handleChange}
+                  />{" "}
+                </form>
               </div>
-              <div className="top-right-content">
+              <form
+                onSubmit={formik.handleSubmit}
+                className="top-right-content"
+              >
                 <h4>For Interface Purpose</h4>
-                <div className="type-code-detail">
-                  <p>
-                    Fee Type Code <FiAlertCircle id="circle-alert" />
-                  </p>
-                  <input type="text" disabled placeholder={detail.id} />
+                <div
+                  className={`type-code-detail ${
+                    formik.errors.feeTypeCode && "type-code"
+                  }`}
+                >
+                  <label>
+                    Fee Type Code<span id="mandatory">*</span>
+                    <FiAlertCircle id="circle-alert" />
+                  </label>
+                  <div>
+                    <input
+                      type="text"
+                      name="feeTypeCode"
+                      value={formik.values.feeTypeCode}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      placeholder={detail.id}
+                    />
+                    {formik.touched.feeTypeCode &&
+                      formik.errors.feeTypeCode && (
+                        <p id="mandatory-note">Fee Type Code is required</p>
+                      )}
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             <div className="bottom-main-content">
               <h4>Translation</h4>
@@ -107,6 +176,7 @@ function EditPage() {
             </Link>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
